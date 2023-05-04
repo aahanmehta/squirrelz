@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request, session, redirect, url_for, make_response, db_tools, random, requests
+from flask import Flask             #facilitate flask webserving
+from flask import render_template, request   #facilitate jinja templating
+from flask import session, redirect, url_for, make_response        #facilitate form submission
 
 app = Flask(__name__)    #create Flask object
 
