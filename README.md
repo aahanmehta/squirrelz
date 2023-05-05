@@ -6,4 +6,4 @@
 - Create a data visualizer for the spotting of UFO and also drunkeness. Hopefully this will show the user a correlation between the two.
 
 ### Website
-** ergo.newjeans.live **
+[Our APP](https://ergo.newjeans.live/)
