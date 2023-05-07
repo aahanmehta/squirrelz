@@ -7,6 +7,7 @@ db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor() # Create the tables if they dont exist yet
 c.executescript(""" 
     create TABLE if NOT EXISTS UFO_sightings("datetime" text, "state" text, "country" text, "comments" text, "lattitude" text, "longitude" text);
+    create TABLE if NOT EXISTS Alcohol_Consumption("State" text, "Year" text, "Per_capita_consumption" text);
     create TABLE if NOT EXISTS info(state text primary key, UFO_sightings int, car_accidents int, drunkenness int);
 """)
 
