@@ -1,17 +1,26 @@
 <!DOCTYPE html>
+{% extends "layout.html" %}
 <html lang="en">
     <script src="state.js"></script>
     <head>
         <meta charset="utf-8">
         <title>
-            Incidents across the U.S.
+		    {% block title %}
+      		    HOMEPAGE
+		    {% endblock %}
         </title> 
     </head>
     <body>
-        <div class = "container">
+       {% block body %}
+           <h1> 
+               CLICK ON A STATE
+           </h1>
+       {% endblock %}
+       <div class = "container">
             <img src="../static/Untitled.jpg" alt="funny meme">
             <button class ="btn" id="button">Button</button>
         </div>
         <p>"testes"</p>
     </body>
 </html>
+
