@@ -5,14 +5,31 @@
 {% endblock %}
 
 {% block body %}
-    <h1> 
-        <div class="main-container d-flex">
-            <div class="sidebar" id="side_nav">
-                <div class="header-box">
-                    <h1 class="fs-4"><span class = "bg-white text-dark rounded shadow px-2 me-2"></span><span class ="text-white"> USA</span></h1>
-                </div>
+    <div class = "container-fluid">
+        <div class="row flex-nowrap">
+            <div class="bg-dark col-auto col-md-2 min-vh-100">
+                <a class="d-flex text-decoration-none mt-1 align-items-center">
+                    <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline text-white">SELECTIONS</span>
+                </a>
+                <ul class="nav nav-pills flex-column mt-4">
+                    <li class ="nav item">
+                        <a href="#" class= "nav-link text-white" aria-current="page">
+                            <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">All 50 states</span>
+                        </a>
+                    </li>
+                    <li class ="nav item">
+                        <a href="#" class= "nav-link text-white" aria-current="page">
+                            <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">Random 25 states</span>
+                        </a>
+                    </li>
+                    <li class ="nav item">
+                        <a href="#" class= "nav-link text-white" aria-current="page">
+                            <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">Dropdown Incoming</span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
 
-    </h1>
 {% endblock %}
