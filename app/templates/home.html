@@ -1,5 +1,32 @@
+<!---<!DOCTYPE html>
 {% extends "layout.html" %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>
+		    {% block title %}
+      		    HOMEPAGE
+		    {% endblock %}
+        </title> 
+    </head>
+    <body>
+       {% block body %}
+           <h1> 
+               CLICK ON A STATE
+           </h1>
+       {% endblock %}
+       <div class = "container">
+            <img src="../static/Untitled.jpg" alt="funny meme">
+            <button class ="btn" id="button">Button</button>
+        </div>
+        <p>"testes"</p>
+        <input type="checkbox" id="checky" onclick="checkBox(id)">
+        <p id="checktext" style="display:none">Checkbox is CHECKED</p>
+    </body>
+    <script src="../static/js/state.js"></script>
+</html>
 
+-->
 {% block title %}
     HOMEPAGE
 {% endblock %}
@@ -31,5 +58,15 @@
             </div>
         </div>
     </div>
-
+    <div class = "container">
+        <img src="../static/Untitled.jpg" alt="funny meme"><br>
+        <button class ="btn" id="button" onclick="buttonFunc()">Button</button>
+        <p id="btntext" style="display:none">not funny</p>
+    </div>
+    <div class = "container">
+        <p>"testes"</p>
+        <input type="checkbox" id="checky" onclick="checkBox(id)">blargh</input><br>
+        <p id="checktext" style="display:none">Checkbox is CHECKED</p>
+    </div>
+    <script src="../static/js/state.js"></script>
 {% endblock %}
