@@ -1,21 +1,23 @@
 console.log("I'm here")
 
-var button = document.getElementById("button")
-
-var buttonFunc = function() {
-  var text = document.getElementById("btntext");
-  if (text.style.display == "block"){
-    text.style.display = "none";
+var btn = document.getElementById("button");
+var buttontext = document.getElementById("btntext")
+var boxtext = document.getElementById("checktext");
+var checkbox = document.getElementById("checky");
+var buttonFunc = () => {
+  if (buttontext.style.display == "block"){
+    buttontext.style.display = "none";
   } else {
-    text.style.display = "block";
+    buttontext.style.display = "block";
   }
 }
-var checkBox = function(whichBox) {
-    var checkBox = document.getElementById(whichBox);
-    var text = document.getElementById("checktext");
-    if (checkBox.checked == true){
-      text.style.display = "block";
+var checkBox = () => {
+    if (checkbox.checked == true){
+      boxtext.style.display = "block";
     } else {
-      text.style.display = "none";
+      boxtext.style.display = "none";
     }
 } 
+
+btn.addEventListener("click", buttonFunc);
+checkbox.addEventListener("click", checkBox);
