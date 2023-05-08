@@ -4,6 +4,7 @@ var btn = document.getElementById("button");
 var buttontext = document.getElementById("btntext")
 var boxtext = document.getElementById("checktext");
 var checkbox = document.getElementById("checky");
+var sidebar = document.getElementById("offcanvasLabel");
 var buttonFunc = () => {
   if (buttontext.style.display == "block"){
     buttontext.style.display = "none";
