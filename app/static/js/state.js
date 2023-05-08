@@ -7,15 +7,19 @@ var checkbox = document.getElementById("checky");
 var buttonFunc = () => {
   if (buttontext.style.display == "block"){
     buttontext.style.display = "none";
+    console.log("herby");
   } else {
     buttontext.style.display = "block";
+    console.log("aaaaa");
   }
 }
 var checkBox = () => {
     if (checkbox.checked == true){
       boxtext.style.display = "block";
+      console.log("qweor");
     } else {
       boxtext.style.display = "none";
+      console.log("qwr")
     }
 } 
 
