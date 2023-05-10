@@ -1,54 +1,29 @@
 {% extends "layout.html" %}
-<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+
+{% block body %}
+<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
+    Link with href
+  </a>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div class="container-fluid">
-            <div class="row flex-nowrap">
-                <div class="bg-dark col-auto col-md-2 min-vh-100">
-                    <a class="d-flex text-decoration-none mt-1 align-items-center">
-                        <i class="fs-5 fa fa-guage"></i><span
-                            class="fs-4 d-none d-sm-inline text-white">SELECTIONS</span>
-                    </a>
-                    <ul class="nav nav-pills flex-column mt-4">
-                        <li class="nav item">
-                            <a href="#" class="nav-link text-white" aria-current="page">
-                                <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">All 50
-                                    states</span>
-                            </a>
-                        </li>
-                        <li class="nav item">
-                            <a href="#" class="nav-link text-white" aria-current="page">
-                                <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">Random 25
-                                    states</span>
-                            </a>
-                        </li>
-                        <li class="nav item">
-                            <a href="#" class="nav-link text-white" aria-current="page">
-                                <i class="fs-5 fa fa-guage"></i><span class="fs-4 d-none d-sm-inline">Dropdown
-                                    Incoming</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <div class="container">
+            <img src="../static/Untitled.jpg" alt="funny meme"><br>
+            <button class="btn" id="button">Button</button>
+            <p id="btntext" style="display:none">not funny</p>
+        </div>
+        <div class="container">
+            <p>"testes"</p>
+            <input type="checkbox" id="checky">blargh</input><br>
+            <p id="checktext" style="display:none">Checkbox is CHECKED</p>
         </div>
     </div>
 </div>
 
-etklajl
-{% block body %}
-<div class="container">
-    <img src="../static/Untitled.jpg" alt="funny meme"><br>
-    <button class="btn" id="button">Button</button>
-    <p id="btntext" style="display:none">not funny</p>
-</div>
-<div class="container">
-    <p>"testes"</p>
-    <input type="checkbox" id="checky">blargh</input><br>
-    <p id="checktext" style="display:none">Checkbox is CHECKED</p>
-</div>
+
 <script src="../static/js/state.js"></script>
 {% endblock %}
