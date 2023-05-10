@@ -46,5 +46,5 @@ python3 __init__.py
 
 #### 7) Open the following link in any web browser
 ```
-http://127.0.0.1:5000
+http://ergo.newjeans.live:4999
 ```

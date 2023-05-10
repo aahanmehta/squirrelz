@@ -26,3 +26,13 @@ var checkBox = () => {
 
 btn.addEventListener("click", buttonFunc);
 checkbox.addEventListener("click", checkBox);
+
+const httpRequest = new XMLHttpRequest();
+function handler() {
+  // Process the server response here.
+}
+
+httpRequest.onreadystatechange = handler;
+
+httpRequest.open("GET", "http://www.example.org/some.file", true);
+httpRequest.send();
