@@ -29,19 +29,20 @@ checkbox.addEventListener("click", checkBox);
 
 
 
-var ajaxButton = document.getElementById("demo");
-ajaxButton.addEventListener("click", ajaxFunc)
+var ajaxButton = document.getElementById("ajaxbut");
 var ajaxFunc = () => {
+  console.log("here");
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      document.getElementById("demo").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.open("GET", "../../static/js/ajax_info.txt", true);
   xhttp.send();
 }
 
+ajaxButton.addEventListener("click", ajaxFunc)
 //httpRequest.onreadystatechange = handler;
 //
 //httpRequest.open("GET", "http://www.example.org/some.file", true);
