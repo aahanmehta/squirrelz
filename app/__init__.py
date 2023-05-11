@@ -8,7 +8,7 @@ app = Flask(__name__)    #create Flask object
 def homepage():
     return render_template('home.html')
 
-@app.route('/filter')A
+@app.route('/filter')
 def filter():
     return 11
 ##@app.route('/<state>')
