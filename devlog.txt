@@ -61,6 +61,12 @@ Our latest best plan for Data Conduit business:
 DATA.db has got our tables, which db_tools.py can access using a variety of methods.
 Using AJAX we get information from python to frontend by making requests from javascript. Bing-Bang-Boom we're in business
 --------------------------------------------------------------
+WeichenL -- 2023-05-10 13:54
+
+Fixed the offcanvas portion of the bootstrap. Added a button for the offcanvas.
+Restructured home.html
+
+--------------------------------------------------------------
 
 JeffC -- 2023-05-10 13:58
 
