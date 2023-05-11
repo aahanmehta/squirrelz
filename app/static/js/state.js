@@ -45,7 +45,10 @@ var ajaxFunc = () => {
 }
 
 ajaxButton.addEventListener("click", ajaxFunc)
-//httpRequest.onreadystatechange = handler;
-//
-//httpRequest.open("GET", "http://www.example.org/some.file", true);
-//httpRequest.send();
+chart = Histogram(unemployment, {
+  value: d => d.rate,
+  label: "Unemployment rate (%) →",
+  width,
+  height: 500,
+  color: "steelblue"
+})
