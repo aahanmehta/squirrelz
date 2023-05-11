@@ -3,6 +3,8 @@ import sqlite3
 
 DB_FILE = "data.db"
 
+states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor() # Create the tables if they dont exist yet
 c.executescript(""" 
@@ -23,9 +25,28 @@ def get_UFO(state):
         return None
     return result[0]
     
+def count_UFO(state):
+    state = state.lower()
+    c = db.cursor()
+    c.execute("SELECT count(*) FROM UFO_sightings WHERE state = ?", (state,))
+    result = c.fetchone()
+    c.close()
+    if(result == None):
+        return None
+    return result[0]
+    
 def get_car(state):
     c = db.cursor()
-    c.execute("select car_accidents FROM info WHERE state = ?", (state,))
+    c.execute("select Car_Accidents FROM info WHERE state = ?", (state,))
+    result = c.fetchone()
+    c.close()
+    if(result == None):
+        return None
+    return result[0]
+
+def count_car(state):
+    c = db.cursor()
+    c.execute("SELECT count(*) FROM Car_Accidents WHERE state = ?", (state,))
     result = c.fetchone()
     c.close()
     if(result == None):
@@ -34,14 +55,36 @@ def get_car(state):
 
 def get_drunk(state):
     c = db.cursor()
-    c.execute("select drunkenness FROM info WHERE state = ?", (state,))
+    c.execute("select Alcohol_Consumption FROM info WHERE state = ?", (state,))
     result = c.fetchone()
     c.close()
     if(result == None):
         return None
     return result[0]
 
+def count_drunk(state):
+    #avg data from all years of state
+    c = db.cursor()
+    c.execute("SELECT avg(Per_capita_consumption)FROM Alcohol_Consumption WHERE state = ?", (state,))
+    result = c.fetchone()
+    c.close()
+    if(result == None):
+        return None
+    return result[0]
 
+def populate_info():
+    c = db.cursor()
+    for state in states:
+        alc = count_drunk(state)
+        ufo = count_UFO(state)
+        accident = count_car(state)
+        c.execute("INSERT INTO info values(?, ?, ?, ?)", (state, ufo, accident, alc,))
+        # print(state,ufo,accident,alc)
+    db.commit()
+    c.close()
+    
+populate_info()
+# print(count_drunk("OH"))
 
 
 

@@ -65,3 +65,11 @@ Using AJAX we get information from python to frontend by making requests from ja
 JeffC -- 2023-05-10 13:58
 
 Fixed bootstrap setup on DigitalOcean droplet
+
+--------------------------------------------------------------
+
+AahanM -- 2023-05-10 22:55
+
+Big info table is ready!
+added bunch of accessor functions for the other databases too.
+--------------------------------------------------------------
