@@ -2,18 +2,18 @@
 
 {% block body %}
 <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
-    Link with href
+    Sidebar
   </a>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasLabel">SELECTIONS</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div class="container">
             <img src="../static/Untitled.jpg" alt="funny meme"><br>
-            <button class="btn" id="button">Button</button>
+            <button class="btn" id="button">Hidden</button>
             <p id="btntext" style="display:none">not funny</p>
         </div>
         <div class="container">
@@ -21,6 +21,10 @@
             <input type="checkbox" id="checky">blargh</input><br>
             <p id="checktext" style="display:none">Checkbox is CHECKED</p>
         </div>
+
+        <br>
+        <h3> Number of random states </h3>
+
     </div>
 </div>
 

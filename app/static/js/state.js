@@ -32,7 +32,11 @@ function handler() {
   // Process the server response here.
 }
 
-httpRequest.onreadystatechange = handler;
-
-httpRequest.open("GET", "http://www.example.org/some.file", true);
-httpRequest.send();
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    document.getElementById("demo").innerHTML = this.responseText;
+  }
+  xhttp.open("GET", "ajax_info.txt");
+  xhttp.send();
+}
