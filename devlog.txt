@@ -73,3 +73,10 @@ AahanM -- 2023-05-10 22:55
 Big info table is ready!
 added bunch of accessor functions for the other databases too.
 --------------------------------------------------------------
+
+JeffC -- 2023-05-11 10:00
+
+Sorted out AJAX, got it to display changes to the site without a reload, just gotta figure out how to link the python to the js with aAJAX.
+
+--------------------------------------------------------------
+

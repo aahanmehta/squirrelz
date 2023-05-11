@@ -4,10 +4,13 @@ from flask import session, redirect, url_for, make_response        #facilitate f
 
 app = Flask(__name__)    #create Flask object
 
-@app.route('/')
+@app.route('/home')
 def homepage():
     return render_template('home.html')
 
+@app.route('/filter')A
+def filter():
+    return 11
 ##@app.route('/<state>')
 ##def subpage():
 ##    return render_template('state.html')
