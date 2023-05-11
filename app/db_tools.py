@@ -83,7 +83,15 @@ def populate_info():
     db.commit()
     c.close()
     
-populate_info()
+
+def get_info(state):
+    c = db.cursor()
+    c.execute("SELECT * FROM info WHERE State = ?",(state,))
+    result = c.fetchone()
+    c.close()
+    return result
+# populate_info()
+print(get_info('OH'))
 # print(count_drunk("OH"))
 
 
