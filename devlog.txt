@@ -1,7 +1,7 @@
 squirrelz
 Jeff Chen
 Aahan Mehta
-Wei Chen Liu
+Weichen Liu
 PD8
 
  ______   ______   __   __   __       ______   _______
