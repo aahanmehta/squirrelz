@@ -65,6 +65,7 @@ WeichenL -- 2023-05-10 13:54
 
 Fixed the offcanvas portion of the bootstrap. Added a button for the offcanvas.
 Restructured home.html
+set up style.css
 
 --------------------------------------------------------------
 
@@ -83,6 +84,13 @@ added bunch of accessor functions for the other databases too.
 JeffC -- 2023-05-11 10:00
 
 Sorted out AJAX, got it to display changes to the site without a reload, just gotta figure out how to link the python to the js with aAJAX.
+
+--------------------------------------------------------------
+
+WeichenL -- 2023-05-11 12:20
+
+Began working on organizing checkboxes. Played around with other different types of checkboxes. 
+Filling out the offcanvas
 
 --------------------------------------------------------------
 
