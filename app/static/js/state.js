@@ -27,12 +27,20 @@ var checkBox = () => {
 btn.addEventListener("click", buttonFunc);
 checkbox.addEventListener("click", checkBox);
 
-const httpRequest = new XMLHttpRequest();
-function handler() {
-  // Process the server response here.
+var ajaxFunc = () => {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("ajaxButton").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "../ajax_info.txt", true);
+  xhttp.send();
 }
 
-httpRequest.onreadystatechange = handler;
-
-httpRequest.open("GET", "http://www.example.org/some.file", true);
-httpRequest.send();
+var ajaxButton = document.getElementById("ajaxbut");
+ajaxButton.addEventListener("click", ajaxFunc)
+//httpRequest.onreadystatechange = handler;
+//
+//httpRequest.open("GET", "http://www.example.org/some.file", true);
+//httpRequest.send();
