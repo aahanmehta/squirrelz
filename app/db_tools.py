@@ -16,6 +16,15 @@ c.executescript("""
 
 c.close()
 
+def get_uf_US():
+        c = db.cursor()
+        c.execute("select count(*) UFO_sightings FROM info")
+        result = c.fetchone()
+        c.close()
+        if(result == None):
+            return None
+        return result[0]
+
 def get_UFO(state):
     c = db.cursor()
     c.execute("select UFO_sightings FROM info WHERE state = ?", (state,))
@@ -90,6 +99,14 @@ def get_info(state):
     result = c.fetchone()
     c.close()
     return result
+    
+
+def alc_info():
+    alcohol_us = []
+    for state in states:
+        alcohol_us.append(state, count_drunk(state)
+    return alcohol_us
+    
 # populate_info()
 print(get_info('OH'))
 # print(count_drunk("OH"))
