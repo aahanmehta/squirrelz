@@ -8,13 +8,6 @@ app = Flask(__name__)    #create Flask object
 def homepage():
     return render_template('home.html')
 
-@app.route('/filter')
-def filter():
-    return 11
-##@app.route('/<state>')
-##def subpage():
-##    return render_template('state.html')
-
 if __name__ == "__main__": #false if this file imported as module
     app.debug = True 
     app.run(host='0.0.0.0')
