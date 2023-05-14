@@ -2,90 +2,90 @@
 
 {% block body %}
 <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
-    Sidebar
-  </a>
+  Sidebar
+</a>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasLabel">SELECTIONS</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasLabel">SELECTIONS</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="container">
+      <h2>USA or States</h2>
+      <form>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky1" name="checky1" value="">USA </input> 
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky2" value="">States </input> <br>
+        </label>
+      </form>
     </div>
-    <div class="offcanvas-body">
-        <div class="container">
-            <h2>USA or States</h2>
-            <form>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky1" name="checky1" value="">USA </input> 
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky2" value="">States </input> <br>
-              </label>
-            </form>
-          </div>
-        
-          <br>
 
-        <div class="container">
-            <h2>Pick Your Bounds</h2>
-            <form>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky1" value="">Option 1 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky2" value="">Option 2 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky3" value="">Option 3 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky4" value="">Option 4 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky5" value="">Option 5 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky6" value="">Option 6 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky7" value="">Option 7 </input> <br>
-              </label>
-              <label class="checkbox-inline">
-                <input type="checkbox" id="checky8" value="">Option 8 </input> <br>
-              </label>
-            </form>
-          </div>
+    <br>
 
-          <br>
+    <div class="container">
+      <h2>Pick Your Bounds</h2>
+      <form>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky1" value="">Option 1 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky2" value="">Option 2 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky3" value="">Option 3 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky4" value="">Option 4 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky5" value="">Option 5 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky6" value="">Option 6 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky7" value="">Option 7 </input> <br>
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" id="checky8" value="">Option 8 </input> <br>
+        </label>
+      </form>
+    </div>
 
-        <div class="container">
+    <br>
 
-          <h3> Playing around with other different types of checkboxes </h3>
+    <div class="container">
 
-          <div class="btn-group" data-toggle="buttons">
-            <label class= "btn btn-primary active">
-                <input type="checkbox" checked autocomplete="off"> Checkbox 1 is selected
-            </label>
-            <label class= "btn btn-primary">
-                <input type="checkbox" checked autocomplete="off"> Checkbox 2
-            </label>
-          </div>
+      <h3> Playing around with other different types of checkboxes </h3>
 
-        </div>
+      <div class="btn-group" data-toggle="buttons">
+        <label class= "btn btn-primary active">
+          <input type="checkbox" checked autocomplete="off"> Checkbox 1 is selected
+        </label>
+        <label class= "btn btn-primary">
+          <input type="checkbox" checked autocomplete="off"> Checkbox 2
+        </label>
+      </div>
 
     </div>
+
+  </div>
 </div>
 
 <div id="demo">
-<h2>The XMLHttpRequest Object</h2>
-<button type="button" id="ajaxbut">Change Content</button>
+  <h2>The XMLHttpRequest Object</h2>
+  <button type="button" id="ajaxbut">Change Content</button>
 </div>
 
 <script src="../static/js/state.js"></script>
 <script type="module">
 
   import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
-  
+
   const div = d3.selectAll("div");
-  
-  </script>
+
+</script>
 {% endblock %}
