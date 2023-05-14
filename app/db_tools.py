@@ -104,11 +104,11 @@ def get_info(state):
 def alc_info():
     alcohol_us = []
     for state in states:
-        alcohol_us.append(state, count_drunk(state)
+        alcohol_us.append(state, count_drunk(state))
     return alcohol_us
     
 # populate_info()
-print(get_info('OH'))
+#print(get_info('OH'))
 # print(count_drunk("OH"))
 
 
