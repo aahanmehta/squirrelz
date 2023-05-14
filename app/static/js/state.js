@@ -24,33 +24,33 @@ ajaxButton.addEventListener("click", ajaxFunc)
 //   color: "steelblue"
 // })
 
-const pElem = document.getElementById("p");
+const form = document.getElementById("form");
 const selectElem = document.getElementById("sel_id");
 
 var submitThis = function() {
   console.log(selectElem.options[selectElem.selectedIndex].id);
-  // var xhttp = new XMLHttpRequest();
-  // xhttp.onreadystatechange = function () {
-  //   //this function is called when a response is received from the form's endpoint
-  //   if (this.readyState === this.DONE) {
-  //     //this code block executes when the response data is finished loading
-  //     var responseText = xhttp.responseText; //handle this variable however you like
-  //     //if you want to treat as JSON data, you can use this line
-  //     //var json = JSON.parse(xhttp.responseText)
-  //     alert("Response received: " + responseText);
-  //   }
-  // };
+  //var formElem = selectElem.options[selectElem.selectedIndex].id;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    //this function is called when a response is received from the form's endpoint
+    if (this.readyState === this.DONE) {
+      //this code block executes when the response data is finished loading
+      var responseText = xhttp.responseText; //handle this variable however you like
+      //if you want to treat as JSON data, you can use this line
+      //var json = JSON.parse(xhttp.responseText)
+      alert("Response received: " + responseText);
+    }
+  };
+  //opens a request to send the data to the URL form.action via form.method
+  //note the false at the end of the xhttp.open call
+  //if set to true, no javascript code will be run after the form is submitted, until the reponse from the form is returned
+  //if set to false, other javascript code will run while the xhttp object waits for the response
+  xhttp.open(form.method, form.action, false);
 
-  // //opens a request to send the data to the URL form.action via form.method
-  // //note the false at the end of the xhttp.open call
-  // //if set to true, no javascript code will be run after the form is submitted, until the reponse from the form is returned
-  // //if set to false, other javascript code will run while the xhttp object waits for the response
-  // xhttp.open(formElement.method, formElement.action, false);
-
-  // var data = new FormData(formElement); //gets the form's data as a FormData object
-  // xhttp.send(data); //sends the FormData object
-  // //because a FormData object is being sent, it will automatically send with the same encoding as an HTML form element would send its data
-  // return false;
+  var data = new FormData(form); //gets the form's data as a FormData object
+  xhttp.send(data); //sends the FormData object
+  //because a FormData object is being sent, it will automatically send with the same encoding as an HTML form element would send its data
+  return false;
 }
 // submitThis();
 selectElem.addEventListener("change", submitThis);

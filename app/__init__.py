@@ -8,6 +8,11 @@ app = Flask(__name__)    #create Flask object
 def homepage():
     return render_template('home.html')
 
+@app.route('/form-submit', methods=['POST'])
+def handleFormSubmission():
+    print(request.form)
+    print(request.form['sel_name'])
+    return "successfully received input: " + request.form['sel_name']
 if __name__ == "__main__": #false if this file imported as module
     app.debug = True 
     app.run(host='0.0.0.0')
