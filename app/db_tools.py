@@ -8,7 +8,7 @@ states = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID"
 
 db = sqlite3.connect(DB_FILE, check_same_thread=False)
 c = db.cursor() # Create the tables if they dont exist yet
-c.executescript(""" 
+c.executescript("""
     create TABLE if NOT EXISTS UFO_sightings("datetime" text, "state" text, "country" text, "comments" text, "lattitude" text, "longitude" text);
     create TABLE if NOT EXISTS Alcohol_Consumption("State" text, "Year" text, "Per_capita_consumption" text);
     create TABLE if NOT EXISTS Car_Accidents("ID" text, "Severity" text, "Latitude" text, "Longitude" text, "Distance" text, "State" text);
@@ -108,9 +108,11 @@ def get_info(state):
 
 def alc_info():
     alcohol_us = {}
-    alcohol_us["STATE"] = "drunks_per_capita"
+    alcohol_us[0] = ("STATE", "drunks_per_capita")
+    x = 1
     for state in states:
-        alcohol_us[state] = count_drunk(state)
+        alcohol_us[x] = (state, count_drunk(state))
+        x+= 1
     alc_us_json = mydict(alcohol_us)
     return alc_us_json
     
