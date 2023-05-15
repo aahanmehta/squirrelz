@@ -108,7 +108,7 @@ def get_info(state):
 
 def alc_info():
     alcohol_us = {}
-    alcohol_us["STATE"] = "drunks per capita"
+    alcohol_us["STATE"] = "drunks_per_capita"
     for state in states:
         alcohol_us[state] = count_drunk(state)
     alc_us_json = mydict(alcohol_us)

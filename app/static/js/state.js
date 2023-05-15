@@ -59,7 +59,7 @@ d3.json("https://ergo.newjeans.live:4999/agg-drunk-data", function(data) {
   // X axis
   var x = d3.scaleBand()
     .range([ 0, width ])
-    .domain(data.map(function(d) { return d.Country; }))
+    .domain(data.map(function(d) { return d.STATE; }))
     .padding(0.2);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -70,7 +70,7 @@ d3.json("https://ergo.newjeans.live:4999/agg-drunk-data", function(data) {
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 13000])
+    .domain([0, 5])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -80,8 +80,8 @@ d3.json("https://ergo.newjeans.live:4999/agg-drunk-data", function(data) {
     .data(data)
     .enter()
     .append("rect")
-    .attr("x", function(d) { return x(d.Country); })
-    .attr("y", function(d) { return y(d.Value); })
+    .attr("x", function(d) { return x(d.STATE); })
+    .attr("y", function(d) { return y(d.drunks_per_capita); })
     .attr("width", x.bandwidth())
     .attr("height", function(d) { return height - y(d.Value); })
     .attr("fill", "#69b3a2")
