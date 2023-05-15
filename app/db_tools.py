@@ -1,5 +1,6 @@
 import csv
 import sqlite3
+import json
 
 DB_FILE = "data.db"
 
@@ -15,6 +16,10 @@ c.executescript("""
 """)
 
 c.close()
+class mydict(dict):
+    """Helper function to replace dict single quotes with double quotes for json parsing"""
+    def __str__(self):
+        return json.dumps(self)
 
 def get_uf_US():
         c = db.cursor()
@@ -102,15 +107,17 @@ def get_info(state):
     
 
 def alc_info():
-    alcohol_us = []
+    alcohol_us = {}
     for state in states:
-        alcohol_us.append(state, count_drunk(state))
-    return alcohol_us
+        alcohol_us[state] = count_drunk(state)
+    alc_us_json = mydict(alcohol_us)
+    return alc_us_json
     
 # populate_info()
 #print(get_info('OH'))
 # print(count_drunk("OH"))
 
+print(alc_info())
 
 
 
