@@ -44,7 +44,7 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
 
   // Add Y axis
   var y = d3.scaleLog()
-    .domain([50, 50000])
+    .domain([2, 8])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
