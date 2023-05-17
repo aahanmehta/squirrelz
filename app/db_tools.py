@@ -119,7 +119,7 @@ def scatter_us_accident():
     scatter = {}
     x = 0
     for state in states:
-        scatter[x] = {"STATE":state, "drunks_per_capita":count_drunk(state), "car_accidents":count_car(state)}
+        scatter[x] = {"STATE":state, "ethanol_per_capita":count_drunk(state), "car_accidents":count_car(state)}
         x +=1 
     scatter_us_accident_json = mydict(scatter)
     return scatter_us_accident_json
