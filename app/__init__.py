@@ -20,7 +20,7 @@ def agg_data_drunk():
     print("here")
     return alc_info()
 
-@app.route('/scatter_car_drunk', methods=['GET'])
+@app.route('/scatter-car-drunk', methods=['GET'])
 def scatter_car_drunk():
     print("here")
     return scatter_us_accident()
