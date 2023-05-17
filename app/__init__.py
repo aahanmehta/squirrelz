@@ -21,7 +21,7 @@ def agg_data_drunk():
     return alc_info()
 
 @app.route('/scatter_car_drunk', methods=['GET'])
-def agg_data_drunk():
+def scatter_car_drunk():
     print("here")
     return scatter_us_accident()
 

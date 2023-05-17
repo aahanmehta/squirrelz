@@ -138,8 +138,8 @@ def scatter_us_ufo():
 # print(count_drunk("OH"))
 
 # print(alc_info())
-# print(scatter_us_accident())
-print(count_car('OH'))
+print(scatter_us_accident())
+#print(count_car('OH'))
 
 
 
