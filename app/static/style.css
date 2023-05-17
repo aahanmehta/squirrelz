@@ -1,10 +1,7 @@
 body{
-    background: #eee;
+    background: white;
 }
 
-#side_nav{
-    background: #000;
-}
 
 .content{
     min-height: 100vh;
