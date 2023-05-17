@@ -111,15 +111,35 @@ def alc_info():
     x = 0
     for state in states:
         alcohol_us[x] = {"STATE":state, "drunks_per_capita":count_drunk(state)}
-        x+= 1
+        x += 1
     alc_us_json = mydict(alcohol_us)
     return alc_us_json
+    
+def scatter_us_accident():
+    scatter = {}
+    x = 0
+    for state in states:
+        scatter[x] = {"STATE":state, "drunks_per_capita":count_drunk(state), "car_accidents":count_car(state)}
+        x +=1 
+    scatter_us_accident_json = mydict(scatter)
+    return scatter_us_accident_json
+    
+def scatter_us_ufo():
+    scatter = {}
+    x = 0
+    for state in states:
+        scatter[x] = {"STATE":state, "drunks_per_capita":count_drunk(state), "car_accidents":count_UFO(state)}
+        x +=1 
+    scatter_us_ufo_json = mydict(scatter)
+    return scatter_us_ufo_json
     
 # populate_info()
 #print(get_info('OH'))
 # print(count_drunk("OH"))
 
-print(alc_info())
+# print(alc_info())
+# print(scatter_us_accident())
+print(count_car('OH'))
 
 
 
