@@ -4,11 +4,17 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
+<!-- Button for Offcanvas -->
+	<a class="btn btn-dark btn-lg" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
+		Sidebar
+	</a>
+
+<br>
+<br>
+
 <!-- Create a div where the graph will take place -->
 <div align="center" id="my_dataviz"></div>
-<a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
-	Sidebar
-</a>
+
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
 	<div class="offcanvas-header">
 		<h5 class="offcanvas-title" id="offcanvasLabel">SELECTIONS</h5>
@@ -32,7 +38,7 @@
 		<div class="container">
 			<h2>Pick Your Bounds</h2>
 			<form>
-				<https://label class="checkbox-inline">
+				<label class="checkbox-inline">
 					<input type="checkbox" id="checky1" value="">Option 1 </input> <br>
 				</label>
 				<label class="checkbox-inline">
@@ -120,9 +126,11 @@
                            
 				</select>
 			</form>
+
 		</div>
 	</div>
 </div>
+
 
 <div id="demo">
 	<h2>The XMLHttpRequest Object</h2>
