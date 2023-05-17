@@ -6,7 +6,7 @@ Jeff Chen, Aahan Mehta, Weichen Liu
 - Weichen Liu: HTML/Bootstrap
 
 ## About Squirrelz
-Based on user customization, app will display data on accidents, alcohol, aliens. Users will be able to see data from all 50 US states, and make their observations.
+Based on user customization, app will display data on accidents, alcohol, aliens. Users will be able to see data from all 50 US states and make observations.
 
 ## API and their cards
 - [Embed Maps](https://github.com/stuy-softdev/notes-and-code/blob/main/api_kb/411_on_Maps-Embed.md)
