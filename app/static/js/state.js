@@ -29,22 +29,22 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.json("https://ergo.newjeans.live:4999/agg-data-drunk", function(data) {
+d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
   console.log(Object.values(data));
   var data = Object.values(data);
 
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, 4000])
+    .domain([0, 3])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
   // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([0, 500000])
+  var y = d3.scaleLog()
+    .domain([50, 50000])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -55,8 +55,8 @@ d3.json("https://ergo.newjeans.live:4999/agg-data-drunk", function(data) {
     .data(data)
     .enter()
     .append("circle")
-      .attr("cx", function (d) { return x(d.GrLivArea); } )
-      .attr("cy", function (d) { return y(d.SalePrice); } )
+      .attr("cx", function (d) { return x(d.ethanol_per_capita); } )
+      .attr("cy", function (d) { return y(d.car_accidents); } )
       .attr("r", 1.5)
       .style("fill", "#69b3a2")
 
