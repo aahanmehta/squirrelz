@@ -13,68 +13,52 @@ var ajaxFunc = () => {
   xhttp.send();
 }
 
-ajaxButton.addEventListener("click", ajaxFunc)
-// set the dimensions and margins of the graph
-var margin = {top: 30, right: 30, bottom: 70, left: 60},
-  width = 1000 - margin.left - margin.right,
-  height = 400 - margin.top - margin.bottom;
 
+ajaxButton.addEventListener("click", ajaxFunc)
+
+var margin = {top: 10, right: 30, bottom: 30, left: 60},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
   .append("g")
-  .attr("transform",
-    "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
 d3.json("https://ergo.newjeans.live:4999/agg-data-drunk", function(data) {
   console.log(Object.values(data));
   var data = Object.values(data);
 
-  // X axis
-  var x = d3.scaleBand()
-    .range([ 0, width ])
-    .domain(data.map(function(d) { return d.STATE; }))
-    .padding(0.2);
+
+  // Add X axis
+  var x = d3.scaleLinear()
+    .domain([0, 4000])
+    .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x))
-    .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
-  svg.append("text")
-    .attr("class", "x label")
-    //.attr("text-anchor", "middle")
-    .attr("transform", "translate(-500,0)")
-    .attr("x", width)
-    .attr("y", height + 40)
-    .text("States");
-  //
+    .call(d3.axisBottom(x));
+
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 5])
+    .domain([0, 500000])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
-  svg.append("text")
-    .attr("class", "y label")
-    .attr("transform", "translate(-50, 140), rotate(-90)")
-    .attr("text-anchor", "middle")
-    .attr("dy", ".75em")
-    .text("Gallons of ethanol consumed per capita");
 
-  // Bars
-  svg.selectAll("mybar")
+  // Add dots
+  svg.append('g')
+    .selectAll("dot")
     .data(data)
     .enter()
-    .append("rect")
-    .attr("x", function(d) { return x(d.STATE); })
-    .attr("y", function(d) { return y(d.drunks_per_capita); })
-    .attr("width", x.bandwidth())
-    .attr("height", function(d) { return height - y(d.drunks_per_capita); })
-    .attr("fill", "#69b3a2")
+    .append("circle")
+      .attr("cx", function (d) { return x(d.GrLivArea); } )
+      .attr("cy", function (d) { return y(d.SalePrice); } )
+      .attr("r", 1.5)
+      .style("fill", "#69b3a2")
 
 })
 const form = document.getElementById("form");

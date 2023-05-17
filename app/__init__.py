@@ -1,7 +1,7 @@
 from flask import Flask             #facilitate flask webserving
 from flask import render_template, request   #facilitate jinja templating
 from flask import session, redirect, url_for, make_response        #facilitate form submission
-from db_tools import alc_info, count_drunk
+from db_tools import alc_info, count_drunk, scatter_us_accident, scatter_us_ufo
 
 app = Flask(__name__)    #create Flask object
 
@@ -19,6 +19,11 @@ def handleFormSubmission():
 def agg_data_drunk():
     print("here")
     return alc_info()
+
+@app.route('/scatter_car_drunk', methods=['GET'])
+def agg_data_drunk():
+    print("here")
+    return scatter_us_accident()
 
 
 
