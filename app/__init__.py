@@ -13,7 +13,7 @@ def homepage():
 def handleFormSubmission():
     #print(request.form)
     state = request.form['sel_name']
-    return "Avg Drunks per Capita for " + state + ": " + str(count_drunk(state))
+    return "Avg pure ethanol consumed per Capita for " + state + ": " + str(count_drunk(state) + " (Gallons)")
 
 @app.route('/agg-data-drunk', methods=['GET'])
 def agg_data_drunk():

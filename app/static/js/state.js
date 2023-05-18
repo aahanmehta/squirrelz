@@ -16,14 +16,17 @@ var ajaxFunc = () => {
 
 ajaxButton.addEventListener("click", ajaxFunc)
 
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 10, right: 30, bottom: 60, left: 60},
+    width = 1280 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+  .call(d3.zoom().on("zoom", function () {
+       svg.attr("transform", d3.event.transform)
+  }))
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
@@ -36,19 +39,65 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([0, 3])
+    .domain([1, 4])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
+  svg.append("text")
+  .attr("class", "x label")
+  .attr("text-anchor", "middle")
+  .attr("transform", "translate(-"+width/2+",0)")
+  .attr("x", width)
+  .attr("y", height + 40)
+  .text("Ethanol Per Capita");
+
   // Add Y axis
   var y = d3.scaleLog()
-    .domain([2, 8])
-    .range([ height, 0]);
+    .domain([1, 300000])
+    .range([ height, 5]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
+  svg.append("text")
+  .attr("class", "y label")
+  .attr("transform", "rotate(-90),translate(-"+height/2+", -50)")
+  .attr("text-anchor", "middle")
+  .attr("dy", ".75em")
+  .text("Number of Car Accidents");
+  
+  var tooltip = d3.select("#my_dataviz")
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
+  .style("background-color", "white")
+  .style("border", "solid")
+  .style("border-width", "1px")
+  .style("border-radius", "5px")
+  .style("padding", "10px")
+  .style("position", "absolute")
+  // A function that change this tooltip when the user hover a point.
+  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+  var mouseover = function(d) {
+    tooltip
+      .style("opacity", 1)
+  }
+
+  var mousemove = function(d) {
+   tooltip
+     .html(d.STATE + ": " + d.ethanol_per_capita + " gallons, " + d.car_accidents + " car accidents" )
+     .style("left", d3.event.pageX + "px") // It is important to put the +90: other wise the tooltip is exactly where the point is an it creates a weird effect
+     .style("top", d3.event.pageY + "px")
+  }
+
+  // A function that change this tooltip when the leaves a point: just need to set opacity to 0 again
+  var mouseleave = function(d) {
+    tooltip
+      .transition()
+      .duration(200)
+      .style("opacity", 0)
+  }
   // Add dots
   svg.append('g')
     .selectAll("dot")
@@ -57,10 +106,15 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
     .append("circle")
       .attr("cx", function (d) { return x(d.ethanol_per_capita); } )
       .attr("cy", function (d) { return y(d.car_accidents); } )
-      .attr("r", 1.5)
+      .attr("r", 10)
       .style("fill", "#69b3a2")
+      .style("opacity", 0.3)
+      .style("stroke", "white")
+    .on("mouseover", mouseover )
+    .on("mousemove", mousemove )
+    .on("mouseleave", mouseleave )
 
-})
+ })
 const form = document.getElementById("form");
 const selectElem = document.getElementById("sel_id");
 
