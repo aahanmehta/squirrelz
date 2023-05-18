@@ -51,7 +51,7 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
   .attr("transform", "translate(-"+width/2+",0)")
   .attr("x", width)
   .attr("y", height + 40)
-  .text("Ethanol Per Capita");
+  .text("Ethanol Consumed Per Capita");
 
   // Add Y axis
   var y = d3.scaleLog()
