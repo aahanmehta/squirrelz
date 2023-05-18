@@ -39,7 +39,7 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([1, 4])
+    .domain([1, 5])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
