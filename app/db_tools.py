@@ -128,7 +128,7 @@ def scatter_us_ufo():
     scatter = {}
     x = 0
     for state in states:
-        scatter[x] = {"STATE":state, "ethanol_per_capita":count_drunk(state), "car_accidents":count_UFO(state)}
+        scatter[x] = {"STATE":state, "ethanol_per_capita":count_drunk(state), "ufo_sightings":count_UFO(state)}
         x +=1 
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json

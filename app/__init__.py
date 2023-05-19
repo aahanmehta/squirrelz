@@ -17,13 +17,19 @@ def handleFormSubmission():
 
 @app.route('/agg-data-drunk', methods=['GET'])
 def agg_data_drunk():
-    print("here")
+#    print("here")
     return alc_info()
 
 @app.route('/scatter-car-drunk', methods=['GET'])
 def scatter_car_drunk():
-    print("here")
+#    print("here")
     return scatter_us_accident()
+@app.route('/scatter-ufo-drunk', methods=['GET'])
+def scatter_ufo_drunk():
+#    print("here")
+    return scatter_us_ufo()
+
+
 
 @app.route('/meme')
 def memedisplay():
