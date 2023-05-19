@@ -25,6 +25,9 @@ def scatter_car_drunk():
     print("here")
     return scatter_us_accident()
 
+@app.route('/meme')
+def memedisplay():
+    return render_template('meme.html')
 
 
 if __name__ == "__main__": #false if this file imported as module
