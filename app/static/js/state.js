@@ -106,12 +106,12 @@ var margin = {top: 10, right: 30, bottom: 60, left: 60},
     width = 1280 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz2")
+var svg2 = d3.select("#my_dataviz2")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .call(d3.zoom().on("zoom", function () {
-       svg.attr("transform", d3.event.transform)
+       svg2.attr("transform", d3.event.transform)
   }))
   .append("g")
     .attr("transform",
@@ -127,11 +127,11 @@ d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
   var x = d3.scaleLinear()
     .domain([1, 5])
     .range([ 0, width ]);
-  svg.append("g")
+  svg2.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
-  svg.append("text")
+  svg2.append("text")
   .attr("class", "x label")
   .attr("text-anchor", "middle")
   .attr("transform", "translate(-"+width/2+",0)")
@@ -143,10 +143,10 @@ d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
   var y = d3.scaleLog()
     .domain([1, 10000])
     .range([ height, 5]);
-  svg.append("g")
+  svg2.append("g")
     .call(d3.axisLeft(y));
 
-  svg.append("text")
+  svg2.append("text")
   .attr("class", "y label")
   .attr("transform", "rotate(-90),translate(-"+height/2+", -50)")
   .attr("text-anchor", "middle")
@@ -185,7 +185,7 @@ d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
       .style("opacity", 0)
   }
   // Add dots
-  svg.append('g')
+  svg2.append('g')
     .selectAll("dot")
     .data(data)
     .enter()
@@ -229,3 +229,4 @@ var submitThis = function() {
   return false;
 }
 selectElem.addEventListener("change", submitThis);
+console.log("im on the server");
