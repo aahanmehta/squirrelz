@@ -4,16 +4,40 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<!-- Button for Offcanvas -->
-	<a class="btn btn-dark btn-lg" data-bs-toggle="offcanvas" href="#offcanvas" role="button" aria-controls="offcanvasExample">
-		Sidebar
-	</a>
 
-<br>
-<br>
+<section class="header">
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-lg">
+			<a class="navbar-brand" href="#">Home</a>
+		  
+			<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+			  <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+				  <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvas"> 404 </a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="/meme">Meme</a>
+				</li>
+			  </ul>
+		  </nav>
+	</div>
+</section>
+
+<hr>
 
 <!-- Create a div where the graph will take place -->
-<div align="center" id="my_dataviz"></div>
+
+<div class= "container-lg">
+	<div id="my_dataviz"></div>
+	<div id="my_dataviz"></div>
+</div>
+<!-- Create a div where the graph will take place -->
+<div class= "graph2">
+	<div align="center" id="my_dataviz2"></div>
+</div>
+
+
+<hr>
 
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
 	<div class="offcanvas-header">
@@ -36,32 +60,42 @@
 		<br>
 
 		<div class="container">
-			<h2>Pick Your Bounds</h2>
+			<h2>Ethanol Upper Bound</h2>
 			<form>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky1" value="">Option 1 </input> <br>
+					<input type="checkbox" id="checky1" value=""> 2 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky2" value="">Option 2 </input> <br>
+					<input type="checkbox" id="checky2" value=""> 3 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky3" value="">Option 3 </input> <br>
+					<input type="checkbox" id="checky3" value=""> 4 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky4" value="">Option 4 </input> <br>
+					<input type="checkbox" id="checky4" value=""> 5 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky5" value="">Option 5 </input> <br>
+			</form>
+		</div>
+
+		<br>
+
+		<div class="container">
+			<h2>Car Accident Upper Bound</h2>
+			<form>
+				<label class="checkbox-inline">
+					<input type="checkbox" id="checky5" value=""> 2 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky6" value="">Option 6 </input> <br>
+					<input type="checkbox" id="checky6" value=""> 3 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky7" value="">Option 7 </input> <br>
+					<input type="checkbox" id="checky7" value=""> 4 </input> <br>
 				</label>
 				<label class="checkbox-inline">
-					<input type="checkbox" id="checky8" value="">Option 8 </input> <br>
+					<input type="checkbox" id="checky8" value=""> 5 </input> <br>
 				</label>
+				<label class="checkbox-inline">
 			</form>
 		</div>
 
@@ -131,11 +165,6 @@
 	</div>
 </div>
 
-
-<div id="demo">
-	<h2>The XMLHttpRequest Object</h2>
-	<button type="button" id="ajaxbut">Change Content</button>
-</div>
 
 <script src="../static/js/state.js"></script>
 <script type="module">

@@ -2,8 +2,26 @@ body{
     background: white;
 }
 
+.graph1{
+    background: white;
+}
 
-.content{
-    min-height: 100vh;
+*{margin: 0;padding: 0;
+    box-sizing: border-box;}
+
+.header{
     width: 100%;
+    background-image: linear-gradient(to right, #de6262, #ffb88c);
+}
+
+.nav-link{
+    color: white;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+*{
+    text-align: center;
 }
