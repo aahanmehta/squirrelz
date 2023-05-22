@@ -44,8 +44,7 @@ function showSpecificGraph(e) {
     //currently just zooms
     //map.fitBounds(e.target.getBounds());
 
-    //add show graph functionalityk
-  //
+    //add show graph functionality
 }
 
 function onEachFeature(feature, layer) {
