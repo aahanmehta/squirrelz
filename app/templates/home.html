@@ -3,7 +3,16 @@
 {% block body %}
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
+<!-- Leaflet script-->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+     crossorigin=""/>
 
+ <!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+     integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+     crossorigin="">
+</script>
 
 <section class="header">
 	<div class="container-fluid">
@@ -25,6 +34,15 @@
 
 <hr>
 
+<!-- Leaflet map-->
+<style>
+    html, body {
+        height: 100%; 
+    }
+
+    #map { height: 100%; }
+</style>
+<div id="map"></div>
 <!-- Create a div where the graph will take place -->
 
 <div id="my_dataviz"></div>
@@ -161,7 +179,7 @@
 </div>
 
 
-<script src="../static/js/state.js"></script>
+<script src="../static/js/state.js" type="module"></script>
 <script type="module">
 
 	import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";

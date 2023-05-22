@@ -1,6 +1,41 @@
+import { statesData } from "./statemap.js";
 console.log("I'm here");
+console.log(statesData);
 
+//leaflet map
+var map = L.map('map').setView([38.09302572405113, -96.76474497954052], 5);
+////test input data
+//var marker = L.marker([40.718149, -0.09]).addTo(map); // this will create a marker on the map
 
+//states overlay test
+//var baseMaps = {
+//    "OpenStreetMap": osm,
+//    "Mapbox Streets": states
+//};
+//var layerControl = L.control.layers(baseMaps).addTo('map');
+
+var circle = L.circle([40.75696897009173, -73.98608933749239], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+}).addTo(map); // this will create a circle
+
+var polygon = L.polygon([
+    [40.80059002992757, -73.95819593824321],
+    [40.79688334088943, -73.94924547916206],
+    [40.764295526562094, -73.97300777321854],
+    [40.76807491724968, -73.98190465305652],
+
+]).addTo(map); //this will create a square
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+L.geoJson(statesData).addTo(map);
+//document.getElementById("map").addEventListener('mouseover', function () {
+//    map.dragging.disable();
+//});
 //ethanol consumption to car accidents graph
 var margin = {top: 10, right: 30, bottom: 60, left: 60},
     width = 1280 - margin.left - margin.right,
