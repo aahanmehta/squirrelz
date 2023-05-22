@@ -33,9 +33,60 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.geoJson(statesData).addTo(map);
-//document.getElementById("map").addEventListener('mouseover', function () {
-//    map.dragging.disable();
-//});
+function style(feature) {
+    return {
+        fillColor: '#dbab6c',
+        weight: 2,
+        opacity: 1,
+        color: 'white',
+        dashArray: '3',
+        fillOpacity: 0.7
+    };
+}
+
+L.geoJson(statesData, {style: style}).addTo(map);
+function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+        weight: 5,
+        color: '#666',
+        dashArray: '',
+        fillOpacity: 0.7
+    });
+
+    layer.bringToFront();
+}
+
+function resetHighlight(e) {
+    geojson.resetStyle(e.target);
+}
+var geojson;
+// ... our listeners
+geojson = L.geoJson(statesData);
+
+function showSpecificGraph(e) {
+    //currently just zooms
+    //map.fitBounds(e.target.getBounds());
+
+    //add show graph functionalityk
+  //
+}
+
+function onEachFeature(feature, layer) {
+    layer.on({
+        mouseover: highlightFeature,
+        mouseout: resetHighlight,
+        click: showSpecificGraph
+    });
+}
+
+geojson = L.geoJson(statesData, {
+    style: style,
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+
 //ethanol consumption to car accidents graph
 var margin = {top: 10, right: 30, bottom: 60, left: 60},
     width = 1280 - margin.left - margin.right,
