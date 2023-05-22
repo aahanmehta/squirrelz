@@ -47,6 +47,7 @@ def count_drunk(state):
     c.close()
     if(result == None):
         return None
+    print(result)
     return result[0]
 
 def populate_info():
@@ -99,8 +100,13 @@ def scatter_us_ufo():
 def get_ufo_year(state, year):
     state = state.lower()
     c = db.cursor()
-    c.execute("SELECT count(*) FROM UFO_sightings WHERE state = ? AND datetime LIKE ?", (state,x,))
+    yr = '%'+str(year)+'%'
+    #print(state)
+    q = (state, yr,)
+    ##print(q)
+    c.execute("SELECT count(*) FROM UFO_sightings WHERE state = ? AND datetime LIKE ?", q)
     result = c.fetchone()
+    ##print("here " + str(result))
     c.close()
     return result
 
@@ -108,20 +114,20 @@ def get_state_ufo(state):
     scatter = {}
     x = 1941
     while x < 2015:
-        scatter[x-1941] = {"Year":x, "sightings":get_ufo_year(state,year)}
+        scatter[x-1941] = {"Year":x, "sightings":get_ufo_year(state, x)}
         x +=1 
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json
     
     
-# populate_info()
+#populate_info()
 #print(get_info('OH'))
-# print(count_drunk("OH"))
+#print(count_UFO('OH'))
 
-# print(alc_info())
+#print(alc_info())
 # print(scatter_us_accident())
 #print(count_car('OH'))
-print(get_car("NY"))
+#print(get_state_ufo('ny'))
 
 
 
