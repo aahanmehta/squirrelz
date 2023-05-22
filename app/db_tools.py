@@ -38,6 +38,8 @@ def get_UFO(state):
     if(result == None):
         return None
     return result[0]
+
+
     
 def count_UFO(state):
     state = state.lower()
@@ -132,6 +134,24 @@ def scatter_us_ufo():
         x +=1 
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json
+
+def get_ufo_year(state, year):
+    state = state.lower()
+    c = db.cursor()
+    c.execute("SELECT count(*) FROM UFO_sightings WHERE state = ? AND datetime LIKE ?", (state,x,))
+    result = c.fetchone()
+    c.close()
+    return result
+
+def get_state_ufo(state):
+    scatter = {}
+    x = 1941
+    while x < 2015:
+        scatter[x-1941] = {"Year":x, "sightings":get_ufo_year(state,year)}
+        x +=1 
+    scatter_us_ufo_json = mydict(scatter)
+    return scatter_us_ufo_json
+    
     
 # populate_info()
 #print(get_info('OH'))
