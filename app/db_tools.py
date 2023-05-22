@@ -20,24 +20,6 @@ class mydict(dict):
     """Helper function to replace dict single quotes with double quotes for json parsing"""
     def __str__(self):
         return json.dumps(self)
-
-def get_uf_US():
-        c = db.cursor()
-        c.execute("select count(*) UFO_sightings FROM info")
-        result = c.fetchone()
-        c.close()
-        if(result == None):
-            return None
-        return result[0]
-
-def get_UFO(state):
-    c = db.cursor()
-    c.execute("select UFO_sightings FROM info WHERE state = ?", (state,))
-    result = c.fetchone()
-    c.close()
-    if(result == None):
-        return None
-    return result[0]
     
 def count_UFO(state):
     state = state.lower()
@@ -49,27 +31,9 @@ def count_UFO(state):
         return None
     return result[0]
     
-def get_car(state):
-    c = db.cursor()
-    c.execute("select Car_Accidents FROM info WHERE state = ?", (state,))
-    result = c.fetchone()
-    c.close()
-    if(result == None):
-        return None
-    return result[0]
-
 def count_car(state):
     c = db.cursor()
     c.execute("SELECT count(*) FROM Car_Accidents WHERE state = ?", (state,))
-    result = c.fetchone()
-    c.close()
-    if(result == None):
-        return None
-    return result[0]
-
-def get_drunk(state):
-    c = db.cursor()
-    c.execute("select Alcohol_Consumption FROM info WHERE state = ?", (state,))
     result = c.fetchone()
     c.close()
     if(result == None):
@@ -132,6 +96,8 @@ def scatter_us_ufo():
         x +=1 
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json
+
+
     
 # populate_info()
 #print(get_info('OH'))
@@ -140,6 +106,7 @@ def scatter_us_ufo():
 # print(alc_info())
 # print(scatter_us_accident())
 #print(count_car('OH'))
+print(get_car("NY"))
 
 
 
