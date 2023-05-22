@@ -20,7 +20,6 @@ class mydict(dict):
     """Helper function to replace dict single quotes with double quotes for json parsing"""
     def __str__(self):
         return json.dumps(self)
-    
 def count_UFO(state):
     state = state.lower()
     c = db.cursor()
@@ -97,7 +96,23 @@ def scatter_us_ufo():
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json
 
+def get_ufo_year(state, year):
+    state = state.lower()
+    c = db.cursor()
+    c.execute("SELECT count(*) FROM UFO_sightings WHERE state = ? AND datetime LIKE ?", (state,x,))
+    result = c.fetchone()
+    c.close()
+    return result
 
+def get_state_ufo(state):
+    scatter = {}
+    x = 1941
+    while x < 2015:
+        scatter[x-1941] = {"Year":x, "sightings":get_ufo_year(state,year)}
+        x +=1 
+    scatter_us_ufo_json = mydict(scatter)
+    return scatter_us_ufo_json
+    
     
 # populate_info()
 #print(get_info('OH'))
