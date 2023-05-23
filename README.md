@@ -8,6 +8,9 @@ Jeff Chen, Aahan Mehta, Weichen Liu
 ## About Squirrelz
 Based on user customization, app will display data on accidents, alcohol, aliens. Users will be able to see data from all 50 US states and make observations.
 
+## Where we live
+```http://ergo.newjeans.live:4999```
+
 ## Javascript Library
 - Leaflet (https://github.com/stuy-softdev/notes-and-code/blob/main/how-to/howto_leaflet_interactive_maps.md)
 
@@ -45,7 +48,7 @@ python3 __init__.py
 
 #### 7) Open the following link in any web browser
 ```
-http://ergo.newjeans.live:4999
+http://127.0.0.1:5000
 ```
 
 ## Data
