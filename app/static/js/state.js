@@ -377,8 +377,15 @@ function state_ufo(data) {
       .style("opacity", 0)
   }
   // Remove dots
+  path.enter().append("path")
+            .attr("fill", function(d, i) { return color(i); })
+            .attr("d", arc)
+            .each(function(d) {this._current = d;} );
 
-  svg3.selectAll("circle").remove();
+  path.transition()
+            .attrTween("d", arcTween);
+
+  path.exit().remove()
   // Add dots
   svg3.append('g')
     .selectAll("dot")
