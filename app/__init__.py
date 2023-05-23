@@ -1,7 +1,7 @@
 from flask import Flask             #facilitate flask webserving
 from flask import render_template, request   #facilitate jinja templating
 from flask import session, redirect, url_for, make_response        #facilitate form submission
-from db_tools import alc_info, count_drunk, scatter_us_accident, scatter_us_ufo
+from db_tools import alc_info, count_drunk, scatter_us_accident, scatter_us_ufo, get_state_ufo
 
 app = Flask(__name__)    #create Flask object
 
@@ -32,7 +32,7 @@ def scatter_ufo_drunk():
 def get_state_data():
     #return "poopoo"
     state = request.args.get('state')
-    return get_state_data(state)
+    return get_state_ufo(state)
 
 
 @app.route('/meme')
