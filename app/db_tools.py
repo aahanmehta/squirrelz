@@ -109,8 +109,9 @@ def get_ufo_year(state, year):
     ##print("here " + str(result))
     c.close()
     return result[0]
+
 def get_ethanol_year(state, year):
-    state = state.lower()
+    state = state.upper()
     c = db.cursor()
     yr = '%'+str(year)+'%'
     #print(state)
@@ -118,7 +119,7 @@ def get_ethanol_year(state, year):
     print(q)
     c.execute("SELECT Per_capita_consumption FROM Alcohol_Consumption WHERE state = ? AND Year LIKE ?", q)
     result = c.fetchone()
-    ##print("here " + str(result))
+    print("here " + str(result))
     c.close()
     if result == None:
         return None;
@@ -143,7 +144,7 @@ def get_state_ufo(state):
 # print(scatter_us_accident())
 #print(count_car('OH'))
 #print(get_state_ufo('ny'))
-print(get_ethanol_year('wy', 1977))
+#print(get_ethanol_year('wy', 1977))
 
 
 
