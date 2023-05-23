@@ -108,13 +108,28 @@ def get_ufo_year(state, year):
     result = c.fetchone()
     ##print("here " + str(result))
     c.close()
-    return result
+    return result[0]
+def get_ethanol_year(state, year):
+    state = state.lower()
+    c = db.cursor()
+    yr = '%'+str(year)+'%'
+    #print(state)
+    q = (state, yr,)
+    print(q)
+    c.execute("SELECT Per_capita_consumption FROM Alcohol_Consumption WHERE state = ? AND Year LIKE ?", q)
+    result = c.fetchone()
+    ##print("here " + str(result))
+    c.close()
+    if result == None:
+        return None;
+    return result[0]
+
 
 def get_state_ufo(state):
     scatter = {}
     x = 1941
     while x < 2015:
-        scatter[x-1941] = {"Year":x, "sightings":get_ufo_year(state, x)}
+        scatter[x-1941] = {"Year":x, "ethanol_per_capita":get_ethanol_year(state,x), "sightings":get_ufo_year(state, x)}
         x +=1 
     scatter_us_ufo_json = mydict(scatter)
     return scatter_us_ufo_json
@@ -128,6 +143,7 @@ def get_state_ufo(state):
 # print(scatter_us_accident())
 #print(count_car('OH'))
 #print(get_state_ufo('ny'))
+print(get_ethanol_year('wy', 1977))
 
 
 
