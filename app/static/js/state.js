@@ -181,6 +181,7 @@ var svg2 = d3.select("#state_specific_graph")
 var getStateData = function(state) {
   //console.log(selectElem.options[selectElem.selectedIndex].id);
   //var formElem = selectElem.options[selectElem.selectedIndex].id;
+  let param = state;
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function () {
     //this function is called when a response is received from the form's endpoint
@@ -194,13 +195,13 @@ var getStateData = function(state) {
   };
   //opens a request to send the data to the URL form.action via form.method
   //note the false at the end of the xhttp.open call
-  xhttp.open("GET", "ergo.newjeans.live:4999/get_state_data?state=${state}", true);
-  //because a FormData object is being sent, it will automatically send with the same encoding as an HTML form element would send its data
+  xhttp.open("GET", "https://ergo.newjeans.live:4999/get_state_data", true);
+  xhttp.send();
   return false;
 }
 
 console.log("testing line 202");
-getStateData();
+getStateData("ny");
 // Parse the Data
 d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
   console.log(Object.values(data));
