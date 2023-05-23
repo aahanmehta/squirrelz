@@ -195,7 +195,7 @@ var getStateData = function(state) {
   };
   //opens a request to send the data to the URL form.action via form.method
   //note the false at the end of the xhttp.open call
-  xhttp.open("GET", "https://ergo.newjeans.live:4999/get_state_data", true);
+  xhttp.open("GET", "https://ergo.newjeans.live:4999/get_state_data?state=${state}", true);
   xhttp.send();
   return false;
 }
