@@ -12,7 +12,7 @@ Based on user customization, app will display data on accidents, alcohol, aliens
 ```http://ergo.newjeans.live:4999```
 
 ## Javascript Library
-- Leaflet (https://github.com/stuy-softdev/notes-and-code/blob/main/how-to/howto_leaflet_interactive_maps.md)
+- Leaflet ```https://github.com/stuy-softdev/notes-and-code/blob/main/how-to/howto_leaflet_interactive_maps.md```
 
 ## Launch Codes
 #### 1) Clone the project
