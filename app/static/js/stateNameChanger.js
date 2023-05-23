@@ -1,3 +1,9 @@
+//from
+//https://gist.github.com/calebgrove/c285a9510948b633aa47
+//im not writing a function like this out by hand
+
+
+
 export function abbrState(input, to){
     
     var states = [
