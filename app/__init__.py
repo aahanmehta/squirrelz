@@ -31,8 +31,8 @@ def scatter_ufo_drunk():
 @app.route('/get_state_data', methods=['GET'])
 def get_state_data():
     #return "poopoo"
-
-    return get_state_data(request.args.get('state'))
+    state = request.args.get('state')
+    return get_state_data(state)
 
 
 @app.route('/meme')
