@@ -112,8 +112,20 @@ Changed graph to be scatter plot + log axes + zoomable
 
 --------------------------------------------------------------
 
-JeffC -- 2023-05-21 18:-17
+JeffC -- 2023-05-21 18:17
 
 Updated design doc
+
+--------------------------------------------------------------
+
+JeffC -- 2023-05-22 22:00
+
+Added map + highlight + zoom + pan
+
+--------------------------------------------------------------
+
+JeffC -- 2023-05-23 00:29
+
+Added graph to show specific states's ethanol consumption to ufo sightings, per year, and show on click on map
 
 --------------------------------------------------------------
