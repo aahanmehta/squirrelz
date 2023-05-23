@@ -160,6 +160,8 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
     .on("mouseleave", mouseleave )
 
  })
+
+
 //ethanol consumption to ufo sightings graph
 var margin = {top: 10, right: 30, bottom: 60, left: 60},
     width = 1280 - margin.left - margin.right,
@@ -176,7 +178,29 @@ var svg2 = d3.select("#state_specific_graph")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
+var getStateData = function(state) {
+  //console.log(selectElem.options[selectElem.selectedIndex].id);
+  //var formElem = selectElem.options[selectElem.selectedIndex].id;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    //this function is called when a response is received from the form's endpoint
+    if (this.readyState === this.DONE) {
+      //this code block executes when the response data is finished loading
+      var responseText = xhttp.responseText; //handle this variable however you like
+      //if you want to treat as JSON data, you can use this line
+      //var json = JSON.parse(xhttp.responseText)
+      console.log("Response received: " + responseText);
+    }
+  };
+  //opens a request to send the data to the URL form.action via form.method
+  //note the false at the end of the xhttp.open call
+  xhttp.open("GET", "ergo.newjeans.live:4999/get_state_data?state=${state}", true);
+  //because a FormData object is being sent, it will automatically send with the same encoding as an HTML form element would send its data
+  return false;
+}
 
+console.log("testing line 202");
+getStateData();
 // Parse the Data
 d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
   console.log(Object.values(data));
@@ -279,7 +303,7 @@ var svg2 = d3.select("#state_specific_graph2")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.json("https://ergo.newjeans.live:4999/state_specific", function(data) {
+d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
   console.log(Object.values(data));
   var data = Object.values(data);
 
