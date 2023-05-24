@@ -88,9 +88,9 @@ geojson = L.geoJson(statesData, {
 }).addTo(map);
 
 //ethanol consumption to car accidents graph
-var margin = {top: 10, right: 30, bottom: 60, left: 60},
-    width = 1280 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+var margin = {top: 10, right: 40, bottom: 60, left: 60},
+  width = 700 - margin.left - margin.right,
+  height = 420 - margin.top - margin.bottom;  
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
@@ -189,9 +189,9 @@ d3.json("https://ergo.newjeans.live:4999/scatter-car-drunk", function(data) {
  })
 
 //ethanol consumption to ufo sightings graph per year
-var margin = {top: 10, right: 30, bottom: 60, left: 60},
-    width = 1280 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+var margin = {top: 10, right: 40, bottom: 60, left: 60},
+  width = 700 - margin.left - margin.right,
+  height = 420 - margin.top - margin.bottom;  
 // append the svg object to the body of the page
 var svg2 = d3.select("#my_dataviz2")
   .append("svg")
@@ -288,10 +288,11 @@ d3.json("https://ergo.newjeans.live:4999/scatter-ufo-drunk", function(data) {
     .on("mouseleave", mouseleave )
 
  })
+
 //ethanol consumption to ufo sightings graph state specific
 var margin = {top: 10, right: 30, bottom: 60, left: 60},
-    width = 1280 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+  width = 800 - margin.left - margin.right,
+  height = 460 - margin.top - margin.bottom;  
 // append the svg object to the body of the page
 var svg3 = d3.select("#state_specific_graph")
   .append("svg")
@@ -376,8 +377,15 @@ function state_ufo(data) {
       .style("opacity", 0)
   }
   // Remove dots
+  path.enter().append("path")
+            .attr("fill", function(d, i) { return color(i); })
+            .attr("d", arc)
+            .each(function(d) {this._current = d;} );
 
-  svg3.selectAll("circle").remove();
+  path.transition()
+            .attrTween("d", arcTween);
+
+  path.exit().remove()
   // Add dots
   svg3.append('g')
     .selectAll("dot")
