@@ -15,7 +15,7 @@ var getStateData = function(state) {
       //if you want to treat as JSON data, you can use this line
       responseText = (JSON.parse(responseText));
       console.log(responseText);
-      state_ufo(responseText);
+      update_state_ufo(responseText, param);
     }
   };
   //opens a request to send the data to the URL form.action via form.method
@@ -308,55 +308,56 @@ var svg3 = d3.select("#state_specific_graph")
 
 
 console.log("testing line 202");
-getStateData("ny");
 // Parse the Data
-function state_ufo(data) {
+//function state_ufo_graph(){
+var x = d3.scaleLinear()
+  .domain([0,5])
+  .range([ 0, width ]);
+svg3.append("g")
+  .attr("transform", "translate(0," + height + ")")
+  .call(d3.axisBottom(x));
+
+svg3.append("text")
+.attr("class", "x label")
+.attr("text-anchor", "middle")
+.attr("transform", "translate(-"+width/2+",0)")
+.attr("x", width)
+.attr("y", height + 40)
+.text("Ethanol Consumed");
+
+// Add Y axis
+var y = d3.scaleLinear()
+  .domain([1, 500])
+  .range([ height, 5]);
+svg3.append("g")
+  .call(d3.axisLeft(y));
+
+svg3.append("text")
+.attr("class", "y label")
+.attr("transform", "rotate(-90),translate(-"+height/2+", -50)")
+.attr("text-anchor", "middle")
+.attr("dy", ".75em")
+.text("Number of UFO Sightings");
+
+var tooltip = d3.select("#state_specific_graph")
+.append("div")
+.style("opacity", 0)
+.attr("class", "tooltip")
+.style("background-color", "white")
+.style("border", "solid")
+.style("border-width", "1px")
+.style("border-radius", "5px")
+.style("padding", "10px")
+.style("position", "absolute")
+// A function that change this tooltip when the user hover a point.
+// Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
+
+//state_ufo_graph();
+function update_state_ufo(data, state) {
   var data = Object.values(data);
   console.log(data);
 
 
-  // Add X axis
-  var x = d3.scaleLinear()
-    .domain([0,5])
-    .range([ 0, width ]);
-  svg3.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
-
-  svg3.append("text")
-  .attr("class", "x label")
-  .attr("text-anchor", "middle")
-  .attr("transform", "translate(-"+width/2+",0)")
-  .attr("x", width)
-  .attr("y", height + 40)
-  .text("Ethanol Consumed");
-
-  // Add Y axis
-  var y = d3.scaleLinear()
-    .domain([1, 500])
-    .range([ height, 5]);
-  svg3.append("g")
-    .call(d3.axisLeft(y));
-
-  svg3.append("text")
-  .attr("class", "y label")
-  .attr("transform", "rotate(-90),translate(-"+height/2+", -50)")
-  .attr("text-anchor", "middle")
-  .attr("dy", ".75em")
-  .text("Number of UFO Sightings");
-  
-  var tooltip = d3.select("#state_specific_graph")
-  .append("div")
-  .style("opacity", 0)
-  .attr("class", "tooltip")
-  .style("background-color", "white")
-  .style("border", "solid")
-  .style("border-width", "1px")
-  .style("border-radius", "5px")
-  .style("padding", "10px")
-  .style("position", "absolute")
-  // A function that change this tooltip when the user hover a point.
-  // Its opacity is set to 1: we can now see it. Plus it set the text and position of tooltip depending on the datapoint (d)
   var mouseover = function(d) {
     tooltip
       .style("opacity", 1)
@@ -376,16 +377,8 @@ function state_ufo(data) {
       .duration(200)
       .style("opacity", 0)
   }
-  // Remove dots
-  path.enter().append("path")
-            .attr("fill", function(d, i) { return color(i); })
-            .attr("d", arc)
-            .each(function(d) {this._current = d;} );
-
-  path.transition()
-            .attrTween("d", arcTween);
-
-  path.exit().remove()
+  svg3.selectAll('dot').remove();
+  svg3.selectAll('circle').remove();
   // Add dots
   svg3.append('g')
     .selectAll("dot")
@@ -401,8 +394,8 @@ function state_ufo(data) {
     .on("mouseover", mouseover )
     .on("mousemove", mousemove )
     .on("mouseleave", mouseleave )
-
- }
+  
+ }//
 const form = document.getElementById("form");
 const selectElem = document.getElementById("sel_id");
 
